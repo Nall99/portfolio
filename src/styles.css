@@ -1,3 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+@import "tailwindcss";
 
-@import 'tailwindcss';
+@theme {
+  --color-bg-top: #0b1020;
+  --color-bg-mid: #131a33;
+  --color-bg-bottom: #1c2444;
+  --color-taskbar-1: #0a0e1c;
+  --color-taskbar-2: #141b33;
+  --color-taskbar-border: #2a3563;
+  --color-accent: #5ee6c8;
+  --color-accent-dim: #2f9e8a;
+  --color-title-active-1: #2a3568;
+  --color-title-active-2: #161b38;
+  --color-start-1: #1f7a63;
+  --color-start-2: #0e4f3f;
+
+  --font-ui: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
