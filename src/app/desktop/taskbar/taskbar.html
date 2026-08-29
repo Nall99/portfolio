@@ -1,1 +1,56 @@
-<p>taskbar works!</p>
+<!-- Menu Iniciar -->
+@if (isStartOpen()) {
+  <div class="fixed bottom-[38px] left-0 z-[200] w-[280px] overflow-hidden rounded-t-md border border-taskbar-border bg-[#151a30] shadow-2xl">
+    <div class="flex items-center gap-2.5 bg-gradient-to-br from-start-1 to-start-2 px-3.5 py-3 text-white">
+      <div class="flex h-8 w-8 items-center justify-center rounded border border-white/30 bg-start-2 font-extrabold text-accent">
+        SN
+      </div>
+      <strong class="text-sm">Seu Nome Aqui</strong>
+    </div>
+
+    <ul class="p-2">
+      @for (win of windowService.windows(); track win.id) {
+        <li
+          class="flex cursor-pointer items-center gap-2.5 rounded px-2.5 py-2 text-[12.5px] text-white/85 hover:bg-accent/15 hover:text-white"
+          (click)="onMenuItemClick(win.id)"
+        >
+          <span class="h-5 w-5 flex-none rounded bg-gradient-to-br from-accent to-title-active-1"></span>
+          {{ win.title }}
+        </li>
+      }
+    </ul>
+  </div>
+}
+
+<!-- Taskbar -->
+<div class="fixed inset-x-0 bottom-0 z-[100] flex h-[38px] items-stretch border-t border-taskbar-border bg-gradient-to-b from-taskbar-2 to-taskbar-1 shadow-[0_-2px_12px_rgba(0,0,0,.4)]">
+  <button
+    class="flex items-center gap-2 border-r border-black/40 bg-gradient-to-b from-start-1 to-start-2 px-4 pl-2.5 font-extrabold italic text-white hover:brightness-110"
+    (click)="toggleStart()"
+  >
+    <span class="grid h-4 w-4 grid-cols-2 grid-rows-2 gap-0.5">
+      <span class="bg-accent"></span><span class="bg-[#8a7dfa]"></span>
+      <span class="bg-[#f6c94e]"></span><span class="bg-[#f4685e]"></span>
+    </span>
+    start
+  </button>
+
+  <div class="flex flex-1 items-center gap-1.5 overflow-x-auto px-2">
+    @for (win of windowService.openWindows(); track win.id) {
+      <button
+        class="h-7 max-w-[170px] flex-none truncate rounded border border-taskbar-border bg-gradient-to-b from-[#1c2242] to-[#12162c] px-2.5 text-xs text-white/80"
+        [class.border-accent-dim]="windowService.activeWindowId() === win.id && !win.isMinimized"
+        [class.from-title-active-1]="windowService.activeWindowId() === win.id && !win.isMinimized"
+        [class.to-[#1a2044]]="windowService.activeWindowId() === win.id && !win.isMinimized"
+        [class.text-white]="windowService.activeWindowId() === win.id && !win.isMinimized"
+        (click)="onTaskClick(win.id)"
+      >
+        {{ win.title }}
+      </button>
+    }
+  </div>
+
+  <div class="flex items-center gap-2.5 border-l border-white/5 px-3.5 text-xs text-white/80">
+    <span>{{ clock() }}</span>
+  </div>
+</div>

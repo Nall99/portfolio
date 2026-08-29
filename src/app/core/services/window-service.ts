@@ -2,11 +2,11 @@ import { Service, signal, computed } from '@angular/core';
 import { AppWindow, WindowConfig, WindowId } from '../models/window-model';
 
 const REGISTRY: WindowConfig[] = [
-  { id: 'sobre-mim', title: 'sobre_mim.txt — Bloco de Notas', icon: 'user', defaultPosition: { x: 130, y: 70 }, defaultSize: { width: 520, height: 480 } },
+  { id: 'sobre-mim', title: 'Sobre mim.txt', icon: 'user', defaultPosition: { x: 130, y: 70 }, defaultSize: { width: 520, height: 480 } },
   { id: 'projetos', title: 'Projetos', icon: 'folder', defaultPosition: { x: 190, y: 90 }, defaultSize: { width: 600, height: 460 } },
-  { id: 'contato', title: 'Nova mensagem — Contato', icon: 'mail', defaultPosition: { x: 250, y: 110 }, defaultSize: { width: 420, height: 440 } },
-  { id: 'curriculo', title: 'curriculo.pdf — Leitor', icon: 'file', defaultPosition: { x: 310, y: 80 }, defaultSize: { width: 460, height: 480 } },
-  { id: 'redes-sociais', title: 'Favoritos — Redes sociais', icon: 'globe', defaultPosition: { x: 370, y: 130 }, defaultSize: { width: 400, height: 420 } },
+  { id: 'contato', title: 'Contato', icon: 'mail', defaultPosition: { x: 250, y: 110 }, defaultSize: { width: 420, height: 440 } },
+  { id: 'curriculo', title: 'curriculo.pdf', icon: 'file', defaultPosition: { x: 310, y: 80 }, defaultSize: { width: 460, height: 480 } },
+  { id: 'redes-sociais', title: 'Redes sociais', icon: 'globe', defaultPosition: { x: 370, y: 130 }, defaultSize: { width: 400, height: 420 } },
 ];
 
 @Service()

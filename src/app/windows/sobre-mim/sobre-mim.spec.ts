@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SobreMin } from './sobre-min';
+import { SobreMin } from './sobre-mim';
 
 describe('SobreMin', () => {
   let component: SobreMin;

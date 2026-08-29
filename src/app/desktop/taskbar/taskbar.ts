@@ -1,9 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { WindowService } from '../../core/services/window-service';
+import { WindowId } from '../../core/models/window-model';
 
 @Component({
-  imports: [],
   selector: 'app-taskbar',
-  styleUrl: './taskbar.css',
+  imports: [],
   templateUrl: './taskbar.html',
 })
-export class Taskbar {}
+export class Taskbar {
+  protected windowService = inject(WindowService);
+  protected isStartOpen = signal(false);
+  protected clock = signal(this.formatTime());
+
+  constructor() {
+    setInterval(() => this.clock.set(this.formatTime()), 10_000);
+  }
+
+  private formatTime(): string {
+    const d = new Date();
+    return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+  }
+
+  toggleStart(): void {
+    this.isStartOpen.update(v => !v);
+  }
+
+  closeStart(): void {
+    this.isStartOpen.set(false);
+  }
+
+  onTaskClick(id: WindowId): void {
+    const win = this.windowService.windows().find(w => w.id === id);
+    if (!win) return;
+
+    if (win.isMinimized) {
+      this.windowService.open(id); // reabre e tira do minimizado
+    } else if (this.windowService.activeWindowId() === id) {
+      this.windowService.minimize(id); // clicar na ativa minimiza (como no XP de verdade)
+    } else {
+      this.windowService.focus(id);
+    }
+  }
+
+  onMenuItemClick(id: WindowId): void {
+    this.windowService.open(id);
+    this.closeStart();
+  }
+}

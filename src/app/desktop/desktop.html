@@ -1,8 +1,7 @@
 <div
-  class="relative h-screen w-screen overflow-hidden bg-gradient-to-b from-bg-top via-bg-mid to-bg-bottom font-ui select-none"
+  class="desktop-surface relative h-screen w-screen overflow-hidden bg-gradient-to-b from-bg-top via-bg-mid to-bg-bottom font-ui select-none"
   (click)="clearSelection()"
 >
-  <!-- grid de ícones -->
   <div class="absolute top-4 left-4 z-10 flex flex-col gap-1.5">
     @for (win of windowService.windows(); track win.id) {
       <app-icon
@@ -16,25 +15,16 @@
     }
   </div>
 
-  <!-- janelas abertas (stub por enquanto — parte 4 traz o componente real) -->
-  <div class="absolute inset-0">
-    @for (win of windowService.openWindows(); track win.id) {
-      @if (!win.isMinimized) {
-        <div
-          class="absolute rounded border border-black/60 bg-white shadow-2xl"
-          [style.left.px]="win.position.x"
-          [style.top.px]="win.position.y"
-          [style.width.px]="win.size.width"
-          [style.height.px]="win.size.height"
-          [style.z-index]="win.zIndex"
-        >
-          <div class="flex h-8 items-center justify-between bg-gradient-to-b from-title-active-1 to-title-active-2 px-2 text-xs text-white">
-            <span>{{ win.title }}</span>
-            <button class="px-1 hover:text-accent" (click)="windowService.close(win.id)">✕</button>
-          </div>
-          <div class="p-4 text-sm text-gray-800">conteúdo de "{{ win.title }}" entra aqui na parte 4/6</div>
-        </div>
+  @for (win of windowService.openWindows(); track win.id) {
+    <app-window [win]="win">
+      @switch (win.id) {
+        @case ('sobre-mim') { <app-sobre-mim/> }
+        @case ('projetos') { <app-projetos/> }
+        @case ('contato') { <app-contato/> }
+        @case ('curriculo') { <app-curriculo/> }
+        @case ('redes-sociais') { <app-redes-sociais/> }
       }
-    }
-  </div>
+    </app-window>
+  }
+  <app-taskbar/>
 </div>
