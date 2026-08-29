@@ -12,7 +12,7 @@ import { RedesSociais } from '../windows/redes-sociais/redes-sociais';
 
 @Component({
   selector: 'app-desktop',
-  imports: [Icon, Window, Taskbar, SobreMim, Projetos, Contato, Curriculo, RedesSociais], 
+  imports: [Icon, Window, Taskbar, SobreMim, Projetos, Contato, Curriculo, RedesSociais],
   templateUrl: './desktop.html',
 })
 export class Desktop {

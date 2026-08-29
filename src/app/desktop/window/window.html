@@ -1,19 +1,19 @@
 @if (!win().isMinimized) {
-  <div
-    class="absolute flex flex-col overflow-hidden rounded-lg border border-black/70 bg-window-bg shadow-2xl"
-    [class.rounded-none]="win().isMaximized"
-    [style.left.px]="win().isMaximized ? 0 : win().position.x"
-    [style.top.px]="win().isMaximized ? 0 : win().position.y"
-    [style.width]="win().isMaximized ? '100%' : win().size.width + 'px'"
-    [style.height]="win().isMaximized ? 'calc(100% - 38px)' : win().size.height + 'px'"
-    [style.z-index]="win().zIndex"
-    (mousedown)="onFocus()"
-    cdkDrag
-    cdkDragBoundary=".desktop-surface"
-    [cdkDragFreeDragPosition]="win().position"
-    [cdkDragDisabled]="win().isMaximized"
-    (cdkDragEnded)="onDragEnded($event)"
-  >
+<div
+  class="absolute flex flex-col overflow-hidden rounded-lg border border-black/70 bg-window-bg shadow-2xl"
+  [class.rounded-none]="win().isMaximized"
+  [style.left.px]="0"
+  [style.top.px]="0"
+  [style.width]="win().isMaximized ? '100%' : win().size.width + 'px'"
+  [style.height]="win().isMaximized ? 'calc(100% - 38px)' : win().size.height + 'px'"
+  [style.z-index]="win().zIndex"
+  (mousedown)="onFocus()"
+  cdkDrag
+  cdkDragBoundary=".desktop-surface"
+  [cdkDragFreeDragPosition]="win().isMaximized ? { x: 0, y: 0 } : win().position"
+  [cdkDragDisabled]="win().isMaximized"
+  (cdkDragEnded)="onDragEnded($event)"
+>
     <div
       class="flex h-8 flex-none cursor-move items-center justify-between px-2 bg-gradient-to-b"
       [class.from-title-active-1]="isActive()"
