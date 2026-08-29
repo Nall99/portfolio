@@ -1,27 +1,29 @@
 <div class="flex items-center gap-4 mb-4">
-    <div class="flex h-16 w-16 flex-done items-center justify-center rouded-lg bg-gradient-to-br from titile-active-1 to accent font-extrabold text-white text-lg">
-        SN
-    </div>
-    <div>
-        <h2 class="text-base font-bold text-gray-900">Allan Victor</h2>
-        <p class="text-xs uppercase tracking-wide text-gray-500">Desenvolvedor Back-end</p>
-    </div>
+  <div class="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-gradient-to-br from-title-active-1 to-accent font-extrabold text-white text-lg">
+    SN
+  </div>
+  <div>
+    <h2 class="text-base font-bold text-gray-900">Seu Nome Aqui</h2>
+    <p class="text-xs uppercase tracking-wide text-gray-500">Desenvolvedor(a) Full Stack</p>
+  </div>
 </div>
+
 <p class="mb-3 text-sm leading-relaxed text-gray-800">
-    Descrição
+  Olá! Sou [sua área — ex: desenvolvedor(a) front-end] apaixonado(a) por criar interfaces
+  criativas e experiências interativas na web. Troque este parágrafo por uma bio curta
+  contando quem você é, o que te motiva e que tipo de projeto gosta de construir.
 </p>
 <p class="mb-4 text-sm leading-relaxed text-gray-800">
-    Atualmente estudando Object Storage
+  Atualmente [estudando / trabalhando em / buscando oportunidades em] ___________.
 </p>
-<hr class="my-4 border-gray-300"/>
 
-<p class="mb-2 text-xs uppercase tracking-wide text-gray500">
-    Habilidades
-</p>
+<hr class="my-4 border-gray-300" />
+
+<p class="mb-2 text-xs uppercase tracking-wide text-gray-500">Habilidades</p>
 <div class="flex flex-wrap gap-1.5">
-    @for (skill of skills; track skill){
-        <span class="rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-[11.5px] text-gray-700">
-            {{ skill }}
-        </span>
-    }
+  @for (skill of skills; track skill) {
+    <span class="rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-[11.5px] text-gray-700">
+      {{ skill }}
+    </span>
+  }
 </div>

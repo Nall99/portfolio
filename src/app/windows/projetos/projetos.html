@@ -1,1 +1,20 @@
-<p>projetos works!</p>
+<p class="mb-3 text-xs uppercase tracking-wide text-gray-500">C:\ Meus Documentos \ Projetos</p>
+
+<div class="grid grid-cols-2 gap-3">
+  @for (p of projetos; track p.nome; let i = $index) {
+    <a
+      [href]="p.link"
+      target="_blank"
+      class="block overflow-hidden rounded-md border border-gray-300 bg-white hover:shadow-md"
+    >
+      <div class="flex h-20 items-center justify-center bg-gradient-to-br from-title-active-1 to-accent text-xs font-bold tracking-wide text-white">
+        PROJETO {{ i + 1 }}
+      </div>
+      <div class="p-3">
+        <h4 class="mb-1 text-[13px] font-semibold text-gray-900">{{ p.nome }}</h4>
+        <p class="mb-2 text-[11.5px] leading-snug text-gray-500">{{ p.descricao }}</p>
+        <span class="text-[11px] font-bold text-accent-dim">ver projeto →</span>
+      </div>
+    </a>
+  }
+</div>
