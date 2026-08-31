@@ -19,11 +19,15 @@
 
 <hr class="my-4 border-gray-300" />
 
-<p class="mb-2 text-xs uppercase tracking-wide text-gray-500">Habilidades</p>
-<div class="flex flex-wrap gap-1.5">
-  @for (skill of skills; track skill) {
-    <span class="rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-[11.5px] text-gray-700">
-      {{ skill }}
-    </span>
-  }
-</div>
+@for (grupo of skillGroup; track grupo.titulo) {
+  <div class="mb-4">
+    <p class="mb-2 text-xs uppercase tracking-wide text-gray-500">{{ grupo.titulo }}</p>
+    <div class="flex flex-wrap gap-1.5">
+      @for (item of grupo.itens; track item) {
+        <span class="rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-[11.5px] text-gray-700">
+          {{ item }}
+        </span>
+      }
+    </div>
+  </div>
+}
