@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, DestroyRef, afterNextRender } from '@angular/core';
 import { WindowService } from '../../core/services/window-service';
 import { WindowId } from '../../core/models/window-model';
 
@@ -10,10 +10,15 @@ import { WindowId } from '../../core/models/window-model';
 export class Taskbar {
   protected windowService = inject(WindowService);
   protected isStartOpen = signal(false);
-  protected clock = signal(this.formatTime());
+  protected clock = signal('--:--');
+  private destroyRef = inject(DestroyRef);
 
   constructor() {
-    setInterval(() => this.clock.set(this.formatTime()), 10_000);
+    afterNextRender(() => {
+      this.clock.set(this.formatTime());
+      const id = setInterval(() => this.clock.set(this.formatTime()), 10_000);
+      this.destroyRef.onDestroy(() => clearInterval(id));
+    });
   }
 
   private formatTime(): string {

@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, input, signal, afterNextRender } from '@angular/core';
 import { DragDropModule, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { WindowService } from '../../core/services/window-service';
 import { AppWindow } from '../../core/models/window-model';
@@ -10,16 +10,15 @@ import { IconGlyph } from "../../shared/icon-glyph/icon-glyph";
   styleUrl: './window.css',
   templateUrl: './window.html',
 })
-export class Window implements OnInit{
+export class Window{
   private windowService = inject(WindowService);
-  protected mounted = signal(false);
-  ngOnInit(): void {
-    requestAnimationFrame(() => this.mounted.set(true));
-  }
-
-
   win = input.required<AppWindow>();
   isActive = computed(() => this.windowService.activeWindowId() === this.win().id);
+  protected mounted = signal(false);
+
+  constructor() {
+    afterNextRender(() => this.mounted.set(true));
+  }
 
   onFocus(): void {
     this.windowService.focus(this.win().id);
