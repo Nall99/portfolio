@@ -1,5 +1,7 @@
 <div class="flex items-center gap-4 mb-4">
-  <div class="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-gradient-to-br from-title-active-1 to-accent font-extrabold text-white text-lg">
+  <div
+    class="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-gradient-to-br from-title-active-1 to-accent font-extrabold text-white text-lg"
+  >
     SN
   </div>
   <div>
@@ -9,12 +11,12 @@
 </div>
 
 <p class="mb-3 text-sm leading-relaxed text-gray-800">
-  Olá! Sou [sua área — ex: desenvolvedor(a) front-end] apaixonado(a) por criar interfaces
-  criativas e experiências interativas na web. Troque este parágrafo por uma bio curta
-  contando quem você é, o que te motiva e que tipo de projeto gosta de construir.
+  Olá! Sou desenvolvedor back-end apaixonado por desafios. Comecei na área de TI pelo Python, ao
+  entrar na UNEB, desenvolvi habilidades, conheci pessoas que levarei para minha vida toda, mas
+  ainda sigo buscando melhorar tanto profissionalmente quanto como pessoa.
 </p>
 <p class="mb-4 text-sm leading-relaxed text-gray-800">
-  Atualmente [estudando / trabalhando em / buscando oportunidades em] ___________.
+  Atualmente buscando oportunidades em desenvolvimento back-end.
 </p>
 
 <hr class="my-4 border-gray-300" />
@@ -24,7 +26,9 @@
     <p class="mb-2 text-xs uppercase tracking-wide text-gray-500">{{ grupo.titulo }}</p>
     <div class="flex flex-wrap gap-1.5">
       @for (item of grupo.itens; track item) {
-        <span class="rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-[11.5px] text-gray-700">
+        <span
+          class="rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-[11.5px] text-gray-700"
+        >
           {{ item }}
         </span>
       }
