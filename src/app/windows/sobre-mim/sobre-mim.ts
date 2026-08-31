@@ -11,7 +11,7 @@ export class SobreMim {
   protected skillGroup: SkillGroup[] = [
     {
     titulo: 'Hard skills',
-    itens: ['JavaScript', 'TypeScript', 'Angular', 'HTML/CSS', 'Tailwind']
+    itens: ['Python', 'Java', 'Angular', 'TypeScript', 'HTML/CSS', 'JavaScript', 'SpringBoot', 'Django', 'Flask', 'MVC', 'SCRUM']
     },
     {
       titulo: 'Soft skills',
@@ -19,7 +19,7 @@ export class SobreMim {
     },
     {
       titulo: 'Feramentas',
-      itens: ['Git', 'SpringBoot', 'Figma']
+      itens: ['Git', 'GitLab', 'Figma', 'MinIO', 'Clound AWS']
     },
     {
       titulo: 'Idiomas',
