@@ -1,0 +1,16 @@
+<div
+  class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black text-[#dfe6ff] transition-opacity duration-500"
+  [class.opacity-0]="hiding()"
+  [class.pointer-events-none]="hiding()"
+>
+  <div class="mb-5 grid h-[52px] w-[52px] grid-cols-2 grid-rows-2 gap-1.5 animate-pulse">
+    <span class="rounded-sm bg-accent"></span>
+    <span class="rounded-sm bg-[#8a7dfa]"></span>
+    <span class="rounded-sm bg-[#f6c94e]"></span>
+    <span class="rounded-sm bg-[#f4685e]"></span>
+  </div>
+  <h1 class="mb-6 text-sm font-light uppercase tracking-[0.12em] text-[#9aa4d6]">seunome os</h1>
+  <div class="h-1.5 w-[180px] overflow-hidden rounded-full bg-[#1a1d2e]">
+    <div class="h-full w-2/5 animate-[loadbar_1.1s_ease-in-out_infinite] rounded-full bg-gradient-to-r from-accent-dim to-accent"></div>
+  </div>
+</div>

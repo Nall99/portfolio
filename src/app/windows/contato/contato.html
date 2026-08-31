@@ -1,1 +1,44 @@
-<p>contato works!</p>
+<h2 class="mb-1 text-base font-bold text-gray-900">Vamos conversar!</h2>
+<p class="mb-4 text-xs uppercase tracking-wide text-gray-500">seuemail&#64;exemplo.com</p>
+
+<form (submit)="enviar($event)" class="flex flex-col gap-3">
+  <div>
+    <label class="mb-1 block text-[11px] uppercase tracking-wide text-gray-500">Nome</label>
+    <input
+      type="text"
+      required
+      [value]="nome()"
+      (input)="nome.set($any($event.target).value)"
+      placeholder="Seu nome"
+      class="w-full rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900"
+    />
+  </div>
+  <div>
+    <label class="mb-1 block text-[11px] uppercase tracking-wide text-gray-500">E-mail</label>
+    <input
+      type="email"
+      required
+      [value]="email()"
+      (input)="email.set($any($event.target).value)"
+      placeholder="voce@email.com"
+      class="w-full rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900"
+    />
+  </div>
+  <div>
+    <label class="mb-1 block text-[11px] uppercase tracking-wide text-gray-500">Mensagem</label>
+    <textarea
+      required
+      [value]="mensagem()"
+      (input)="mensagem.set($any($event.target).value)"
+      placeholder="Escreva sua mensagem..."
+      rows="4"
+      class="w-full resize-y rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900"
+    ></textarea>
+  </div>
+  <button
+    type="submit"
+    class="mt-1 self-start rounded border border-accent-dim bg-gradient-to-b from-accent to-accent-dim px-4 py-1.5 text-[12.5px] font-bold text-[#062421] hover:brightness-110"
+  >
+    Enviar mensagem
+  </button>
+</form>

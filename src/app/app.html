@@ -1,2 +1,6 @@
-<app-desktop/>
+@if (booting()) {
+  <app-boot (finished)="booting.set(false)"/>
+}@else {
+  <app-desktop/>
+}
 <router-outlet />

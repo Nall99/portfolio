@@ -21,3 +21,8 @@
   --color-title-inactive-1: #20233a;
   --color-title-inactive-2: #14161f;
 }
+
+@keyframes loadbar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(280%); }
+}

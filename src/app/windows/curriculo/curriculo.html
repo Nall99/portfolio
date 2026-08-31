@@ -1,1 +1,36 @@
-<p>curriculo works!</p>
+<div class="rounded border border-gray-300 bg-white p-5 shadow-sm">
+  <h2 class="text-base font-bold text-gray-900">Seu Nome Aqui</h2>
+  <p class="mb-3 text-xs uppercase tracking-wide text-gray-500">
+    Desenvolvedor(a) Full Stack &nbsp;•&nbsp; cidade, país
+  </p>
+
+  <hr class="my-3 border-gray-300" />
+  <p class="mb-1 text-xs uppercase tracking-wide text-gray-500">Experiência</p>
+  <p class="text-sm text-gray-800">
+    <strong>Cargo — Empresa</strong> (mês/ano – mês/ano)<br />
+    Breve descrição das responsabilidades e conquistas nesse período.
+  </p>
+
+  <hr class="my-3 border-gray-300" />
+  <p class="mb-1 text-xs uppercase tracking-wide text-gray-500">Formação</p>
+  <p class="text-sm text-gray-800"><strong>Curso — Instituição</strong> (ano de conclusão)</p>
+
+  <hr class="my-3 border-gray-300" />
+  <p class="mb-2 text-xs uppercase tracking-wide text-gray-500">Habilidades</p>
+  <div class="flex flex-wrap gap-1.5">
+    @for (skill of ['HTML/CSS', 'JavaScript', 'Angular', 'Tailwind', '+ sua stack']; track skill) {
+      <span class="rounded-full border border-gray-300 bg-gray-100 px-2.5 py-1 text-[11.5px] text-gray-700">
+        {{ skill }}
+      </span>
+    }
+  </div>
+</div>
+
+<div class="mt-4 text-center">
+  <a
+    href="#"
+    class="inline-block rounded border border-accent-dim bg-gradient-to-b from-accent to-accent-dim px-4 py-1.5 text-[12.5px] font-bold text-[#062421] hover:brightness-110"
+  >
+    ⬇ Baixar currículo (PDF)
+  </a>
+</div>

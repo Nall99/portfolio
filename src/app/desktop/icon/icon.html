@@ -6,8 +6,7 @@
   (dblclick)="open.emit(windowId())"
 >
   <div class="flex h-10 w-10 items-center justify-center drop-shadow-md">
-    <!-- por enquanto um placeholder simples; trocamos por SVGs reais na parte de polimento -->
-    <div class="h-8 w-8 rounded bg-gradient-to-br from-accent to-title-active-1"></div>
+    <app-icon-glyph [key]="iconKey()" />
   </div>
   <span class="max-w-[88px] text-center text-[11.5px] leading-tight text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,.9)]">
     {{ label() }}

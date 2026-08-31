@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,15 @@ import { Component } from '@angular/core';
   styleUrl: './contato.css',
   templateUrl: './contato.html',
 })
-export class Contato {}
+export class Contato {
+  protected nome = signal('');
+  protected email = signal('');
+  protected mensagem = signal('');
+
+  enviar(event: Event): void {
+    event.preventDefault();
+    const assunto = encodeURIComponent(`Contato de ${this.nome()}`);
+    const corpo = encodeURIComponent(`${this.mensagem()}\n\n— ${this.nome()} (${this.email()})`);
+    window.location.href = `mailto:seuemail@exemplo.com?subject=${assunto}&body=${corpo}`;
+  }
+}

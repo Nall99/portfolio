@@ -1,1 +1,15 @@
-<p>redes-sociais works!</p>
+<div class="flex flex-col">
+  @for (r of redes; track r.nome) {
+    <a
+      [href]="r.link"
+      target="_blank"
+      class="flex items-center gap-3 border-b border-gray-200 px-2 py-2.5 hover:bg-gray-50"
+    >
+      <span class="h-6 w-6 flex-none rounded-full" [style.background]="r.cor"></span>
+      <div>
+        <strong class="block text-[13px] text-gray-900">{{ r.nome }}</strong>
+        <span class="text-[11.5px] text-gray-500">{{ r.handle }}</span>
+      </div>
+    </a>
+  }
+</div>
