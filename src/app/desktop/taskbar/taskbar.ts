@@ -1,10 +1,11 @@
 import { Component, inject, signal, DestroyRef, afterNextRender } from '@angular/core';
 import { WindowService } from '../../core/services/window-service';
 import { WindowId } from '../../core/models/window-model';
+import { Icon } from '../icon/icon';
 
 @Component({
   selector: 'app-taskbar',
-  imports: [],
+  imports: [Icon],
   templateUrl: './taskbar.html',
 })
 export class Taskbar {
@@ -12,6 +13,8 @@ export class Taskbar {
   protected isStartOpen = signal(false);
   protected clock = signal('--:--');
   private destroyRef = inject(DestroyRef);
+  protected selectedIcon: WindowId | null = null;
+
 
   constructor() {
     afterNextRender(() => {
@@ -19,6 +22,9 @@ export class Taskbar {
       const id = setInterval(() => this.clock.set(this.formatTime()), 10_000);
       this.destroyRef.onDestroy(() => clearInterval(id));
     });
+  }
+  selectIcon(id: WindowId): void {
+    this.selectedIcon = id;
   }
 
   private formatTime(): string {
@@ -39,9 +45,9 @@ export class Taskbar {
     if (!win) return;
 
     if (win.isMinimized) {
-      this.windowService.open(id); // reabre e tira do minimizado
+      this.windowService.open(id);
     } else if (this.windowService.activeWindowId() === id) {
-      this.windowService.minimize(id); // clicar na ativa minimiza (como no XP de verdade)
+      this.windowService.minimize(id);
     } else {
       this.windowService.focus(id);
     }

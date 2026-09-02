@@ -14,7 +14,7 @@ export interface AppWindow {
   isMaximized: boolean;   // verifica se está maximinizado
   zIndex: number;         // camada (vai ditar a ordem das janelas, qual está na frente e qual está atrás)
   position: { x: number; y: number }; // posição na tela
-  size: { width: number; height: number }; // seu tamanho na rela
+  size: { width: number; height: number }; // seu tamanho na tela
 }
 
 export interface WindowConfig {
