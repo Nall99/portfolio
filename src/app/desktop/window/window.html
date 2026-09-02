@@ -9,7 +9,7 @@
   [style.left.px]="0"
   [style.top.px]="0"
   [style.width]="win().isMaximized ? '100%' : win().size.width + 'px'"
-  [style.height]="win().isMaximized ? 'calc(100% - 38px)' : win().size.height + 'px'"
+  [style.height]="win().isMaximized ? 'calc(100% - var(--taskbar-h))' : win().size.height + 'px'"
   [style.z-index]="win().zIndex"
   (mousedown)="onFocus()"
   cdkDrag

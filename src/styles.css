@@ -26,3 +26,8 @@
   0% { transform: translateX(-100%); }
   100% { transform: translateX(280%); }
 }
+
+
+:root {
+  --taskbar-h: clamp(3.25rem, 6vh, 5rem); /* 52px até 80px */
+}

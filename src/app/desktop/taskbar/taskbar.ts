@@ -1,11 +1,11 @@
 import { Component, inject, signal, DestroyRef, afterNextRender } from '@angular/core';
 import { WindowService } from '../../core/services/window-service';
 import { WindowId } from '../../core/models/window-model';
-import { Icon } from '../icon/icon';
+import { IconGlyph } from '../../shared/icon-glyph/icon-glyph';
 
 @Component({
   selector: 'app-taskbar',
-  imports: [Icon],
+  imports: [IconGlyph],
   templateUrl: './taskbar.html',
 })
 export class Taskbar {

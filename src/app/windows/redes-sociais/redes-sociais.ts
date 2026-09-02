@@ -9,10 +9,8 @@ import { Rede } from '../../core/models/rede';
 })
 export class RedesSociais {
   protected redes: Rede[] = [
-    { nome: 'GitHub', handle: 'github.com/seuusuario', link: '#', cor: '#20233a' },
-    { nome: 'LinkedIn', handle: 'linkedin.com/in/seuusuario', link: '#', cor: '#0a66c2' },
-    { nome: 'Instagram', handle: '@seuusuario', link: '#', cor: '#e1306c' },
-    { nome: 'X / Twitter', handle: '@seuusuario', link: '#', cor: '#111111' },
-    { nome: 'Behance', handle: 'behance.net/seuusuario', link: '#', cor: '#1769ff' },
+    { nome: 'GitHub', handle: 'github.com/Nall99', link: 'https://github.com/Nall99', cor: '#20233a' },
+    { nome: 'LinkedIn', handle: 'linkedin.com/in/allan-victor-cb', link: 'https://www.linkedin.com/in/allan-victor-cb/', cor: '#0a66c2' },
+    { nome: 'Instagram', handle: '@seuusuario', link: '#', cor: '#e1306c' }
   ]
 }
