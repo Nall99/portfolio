@@ -1,6 +1,16 @@
 <h2 class="mb-1 text-base font-bold text-gray-900">Vamos conversar!</h2>
 <p class="mb-4 text-xs tracking-wide text-gray-500">Nallvixviii&#64;gmail.com</p>
 
+@if (status() === 'sucesso') {
+  <div class="mb-4 rounded border border-accent-dim bg-accent/10 px-3 py-2.5 text-sm text-accent-dim">
+    ✓ Mensagem enviada com sucesso! Vou te responder em breve.
+  </div>
+} @else if (status() === 'erro') {
+  <div class="mb-4 rounded border border-red-300 bg-red-50 px-3 py-2.5 text-sm text-red-700">
+    ✕ Algo deu errado ao enviar. Tenta de novo ou manda direto pro e-mail acima.
+  </div>
+}
+
 <form (submit)="enviar($event)" class="flex flex-col gap-3">
   <div>
     <label class="mb-1 block text-[11px] uppercase tracking-wide text-gray-500">Nome</label>
@@ -10,7 +20,8 @@
       [value]="nome()"
       (input)="nome.set($any($event.target).value)"
       placeholder="Seu nome"
-      class="w-full rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900"
+      [disabled]="status() === 'enviando'"
+      class="w-full rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900 disabled:opacity-60"
     />
   </div>
   <div>
@@ -21,7 +32,8 @@
       [value]="email()"
       (input)="email.set($any($event.target).value)"
       placeholder="voce@email.com"
-      class="w-full rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900"
+      [disabled]="status() === 'enviando'"
+      class="w-full rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900 disabled:opacity-60"
     />
   </div>
   <div>
@@ -32,13 +44,15 @@
       (input)="mensagem.set($any($event.target).value)"
       placeholder="Escreva sua mensagem..."
       rows="4"
-      class="w-full resize-y rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900"
+      [disabled]="status() === 'enviando'"
+      class="w-full resize-y rounded border border-gray-300 px-2.5 py-1.5 text-sm text-gray-900 disabled:opacity-60"
     ></textarea>
   </div>
   <button
     type="submit"
-    class="mt-1 self-start rounded border border-accent-dim bg-gradient-to-b from-accent to-accent-dim px-4 py-1.5 text-[12.5px] font-bold text-[#062421] hover:brightness-110"
+    [disabled]="status() === 'enviando'"
+    class="mt-1 self-start rounded border border-accent-dim bg-gradient-to-b from-accent to-accent-dim px-4 py-1.5 text-[12.5px] font-bold text-[#062421] hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
   >
-    Enviar mensagem
+    {{ status() === 'enviando' ? 'Enviando...' : 'Enviar mensagem' }}
   </button>
 </form>

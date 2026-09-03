@@ -20,24 +20,35 @@ export class WindowService {
       isMinimized: false,
       isMaximized: false,
       zIndex: 10 + i,
+      openOrder: 0,
       position: cfg.defaultPosition ?? { x: 100 + i * 30, y: 80 + i * 20 },
       size: cfg.defaultSize ?? { width: 480, height: 420 },
     }))
   );
 
   readonly windows = this._windows.asReadonly();
-  readonly openWindows = computed(() => this._windows().filter(w => w.isOpen));
+  readonly openWindows = computed(() =>
+    this._windows()
+      .filter(w => w.isOpen)
+      .sort((a, b) => a.openOrder - b.openOrder)
+    );
   readonly activeWindowId = signal<WindowId | null>(null);
 
   private topZ = 20;
+  private openSeq = 0;
 
   open(id: WindowId): void {
-    this.update(id, w => ({ ...w, isOpen: true, isMinimized: false }));
+    this.update(id, w => ({
+      ...w,
+      isOpen: true,
+      isMinimized: false,
+      openOrder: w.openOrder === 0 ? ++this.openSeq : w.openOrder,
+    }));
     this.focus(id);
   }
 
   close(id: WindowId): void {
-    this.update(id, w => ({ ...w, isOpen: false, isMinimized: false }));
+    this.update(id, w => ({ ...w, isOpen: false, isMinimized: false, openOrder: 0 }));
     if (this.activeWindowId() === id) this.activeWindowId.set(null);
   }
 

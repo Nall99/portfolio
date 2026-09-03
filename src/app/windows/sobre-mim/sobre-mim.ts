@@ -19,7 +19,7 @@ export class SobreMim {
     },
     {
       titulo: 'Feramentas',
-      itens: ['Git', 'GitLab', 'Figma', 'MinIO', 'Cloud AWS']
+      itens: ['Git', 'GitLab', 'Figma', 'MinIO', 'Cloud', 'Docker', 'Postman', 'Jupyter Notebook']
     },
     {
       titulo: 'Idiomas',
