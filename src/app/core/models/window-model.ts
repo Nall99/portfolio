@@ -11,7 +11,6 @@ export interface AppWindow {
   icon: string;           // caminho do ícone ou nome de componente de ícone
   isOpen: boolean;        // verifica está aberto
   isMinimized: boolean;   // verifica está minimizado
-  isMaximized: boolean;   // verifica se está maximinizado
   zIndex: number;         // camada (vai ditar a ordem das janelas, qual está na frente e qual está atrás)
   openOrder: number;       // ordem de abertura
   position: { x: number; y: number }; // posição na tela

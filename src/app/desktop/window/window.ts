@@ -34,11 +34,6 @@ export class Window{
     this.windowService.minimize(this.win().id);
   }
 
-  toggleMaximize(event: MouseEvent): void {
-    event.stopPropagation();
-    this.windowService.toggleMaximize(this.win().id);
-  }
-
   close(event: MouseEvent): void {
     event.stopPropagation();
     this.windowService.close(this.win().id);

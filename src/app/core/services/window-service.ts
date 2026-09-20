@@ -18,7 +18,6 @@ export class WindowService {
       icon: cfg.icon,
       isOpen: false,
       isMinimized: false,
-      isMaximized: false,
       zIndex: 10 + i,
       openOrder: 0,
       position: cfg.defaultPosition ?? { x: 100 + i * 30, y: 80 + i * 20 },
@@ -56,10 +55,6 @@ export class WindowService {
     this.update(id, w => ({ ...w, isMinimized: true }));
   }
 
-  toggleMaximize(id: WindowId): void {
-    this.update(id, w => ({ ...w, isMaximized: !w.isMaximized }));
-    this.focus(id);
-  }
 
   focus(id: WindowId): void {
     this.topZ++;

@@ -35,7 +35,7 @@ export class Contato {
         environment.emailjs.serviceId,
         environment.emailjs.templateId,
         {
-          from_name: this.nome(),
+          name: this.nome(),
           from_email: this.email(),
           message: this.mensagem(),
         },
