@@ -59,7 +59,6 @@ export class Taskbar {
   }
 
   onMenuItemClick(id: WindowId): void {
-    this.sound.tocar('click');
     this.windowService.open(id);
     this.closeStart();
   }
