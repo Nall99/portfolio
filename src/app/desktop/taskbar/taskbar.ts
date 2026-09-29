@@ -2,6 +2,7 @@ import { Component, inject, signal, DestroyRef, afterNextRender } from '@angular
 import { WindowService } from '../../core/services/window-service';
 import { WindowId } from '../../core/models/window-model';
 import { IconGlyph } from '../../shared/icon-glyph/icon-glyph';
+import { SoundService } from '../../core/services/sound-service';
 
 @Component({
   selector: 'app-taskbar',
@@ -12,9 +13,10 @@ export class Taskbar {
   protected windowService = inject(WindowService);
   protected isStartOpen = signal(false);
   protected clock = signal('--:--');
-  private destroyRef = inject(DestroyRef);
   protected selectedIcon: WindowId | null = null;
+  protected sound = inject(SoundService);
 
+  private destroyRef = inject(DestroyRef);
 
   constructor() {
     afterNextRender(() => {
@@ -33,14 +35,17 @@ export class Taskbar {
   }
 
   toggleStart(): void {
+    this.sound.tocar('click');
     this.isStartOpen.update(v => !v);
   }
 
   closeStart(): void {
+    this.sound.tocar('click');
     this.isStartOpen.set(false);
   }
 
   onTaskClick(id: WindowId): void {
+    this.sound.tocar('click');
     const win = this.windowService.windows().find(w => w.id === id);
     if (!win) return;
 
@@ -54,6 +59,7 @@ export class Taskbar {
   }
 
   onMenuItemClick(id: WindowId): void {
+    this.sound.tocar('click');
     this.windowService.open(id);
     this.closeStart();
   }

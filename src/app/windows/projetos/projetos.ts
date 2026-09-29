@@ -28,6 +28,14 @@ export class Projetos {
 
   protected projetos: Projeto[] = [
     {
+      nome: 'Agente Virtual',
+      descricao: '',
+      link: 'https://github.com/Nall99/AgenteVirtual',
+      imagens: criarImagens("/images/projects/agente-virtual", 5),
+      categoria: 'Web',
+      tecnologias: ['Angular', 'Python', 'FastAPI', 'Tailwind', 'Vercel', 'openai'],
+    },
+    {
       nome: 'Análise de uso de celular',
       descricao: '',
       link: 'https://github.com/Nall99/Analise-de-uso-de-celular/blob/main/main.ipynb',
@@ -42,14 +50,6 @@ export class Projetos {
       imagens: criarImagens("/images/projects/modern-angular", 1),
       categoria: 'Front-end',
       tecnologias: ['Angular'],
-    },
-    {
-      nome: 'Agente Virtual',
-      descricao: '',
-      link: 'https://github.com/Nall99/AgenteVirtual',
-      imagens: criarImagens("/images/projects/agente-virtual", 5),
-      categoria: 'Web',
-      tecnologias: ['Angular', 'Python', 'FastAPI', 'Tailwind', 'Vercel', 'openai'],
     },
   ];
 

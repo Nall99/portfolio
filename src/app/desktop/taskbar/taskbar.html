@@ -49,28 +49,43 @@
     start
   </button>
 
-  <div class="flex flex-1 items-center gap-0.4 overflow-x-auto ">
-  @for (win of windowService.openWindows(); track win.id) {
-    <button
-      class="flex max-w-[clamp(140px,14vw,220px)] flex-none items-center self-stretch gap-1.5 truncate rounded border border-taskbar-border bg-gradient-to-b from-[#1c2242] to-[#12162c] px-[clamp(0.5rem,0.8vw,0.875rem)] text-[clamp(11px,0.95vw,14px)] text-white/80"
-
-      [class.border-accent-dim]="windowService.activeWindowId() === win.id && !win.isMinimized"
-      [class.from-title-active-1]="windowService.activeWindowId() === win.id && !win.isMinimized"
-      [class.to-[#1a2044]]="windowService.activeWindowId() === win.id && !win.isMinimized"
-      [class.text-white]="windowService.activeWindowId() === win.id && !win.isMinimized"
-      (click)="onTaskClick(win.id)"
-    >
-      <span class="h-[clamp(0.875rem,1.4vw,1.25rem)] w-[clamp(0.875rem,1.4vw,1.25rem)] flex-none">
-        <app-icon-glyph [key]="win.icon" />
-      </span>
-      <span class="truncate">{{ win.title }}</span>
-    </button>
-  }
-</div>
-
-  <div
-    class="flex items-center gap-2.5 border-l border-white/5 px-[clamp(0.625rem,1.2vw,1.25rem)] text-[clamp(11px,0.95vw,14px)] text-white/80"
-  >
-    <span>{{ clock() }}</span>
+  <div class="flex flex-1 items-center gap-0.4 overflow-x-auto">
+    @for (win of windowService.openWindows(); track win.id) {
+      <button
+        class="flex max-w-[clamp(140px,14vw,220px)] flex-none items-center self-stretch gap-1.5 truncate rounded border border-taskbar-border bg-gradient-to-b from-[#1c2242] to-[#12162c] px-[clamp(0.5rem,0.8vw,0.875rem)] text-[clamp(11px,0.95vw,14px)] text-white/80"
+        [class.border-accent-dim]="windowService.activeWindowId() === win.id && !win.isMinimized"
+        [class.from-title-active-1]="windowService.activeWindowId() === win.id && !win.isMinimized"
+        [class.to-[#1a2044]]="windowService.activeWindowId() === win.id && !win.isMinimized"
+        [class.text-white]="windowService.activeWindowId() === win.id && !win.isMinimized"
+        (click)="onTaskClick(win.id)"
+      >
+        <span class="h-[clamp(0.875rem,1.4vw,1.25rem)] w-[clamp(0.875rem,1.4vw,1.25rem)] flex-none">
+          <app-icon-glyph [key]="win.icon" />
+        </span>
+        <span class="truncate">{{ win.title }}</span>
+      </button>
+    }
   </div>
+
+  <div class="flex items-center gap-2.5 border-l border-white/5 px-[clamp(0.625rem,1.2vw,1.25rem)] text-[clamp(11px,0.95vw,14px)] text-white/80">
+  <button
+  type="button"
+  (click)="sound.alternar()"
+  [attr.aria-label]="sound.habilitado() ? 'Silenciar sons' : 'Ativar sons'"
+  class="flex h-[clamp(2.25rem,4vh,3.25rem)] w-[clamp(2.25rem,4vh,3.25rem)] items-center justify-center rounded hover:bg-white/10"
+>
+  @if (sound.habilitado()) {
+    <svg viewBox="0 0 24 24" class="h-[clamp(1.5rem,2.6vh,2.25rem)] w-[clamp(1.5rem,2.6vh,2.25rem)]" fill="currentColor">
+      <path d="M4 9v6h4l5 5V4L8 9H4z" />
+      <path d="M16.5 12c0-1.77-.77-3.29-2-4.24v8.48c1.23-.95 2-2.47 2-4.24z" opacity="0.9" />
+    </svg>
+  } @else {
+    <svg viewBox="0 0 24 24" class="h-[clamp(1.5rem,2.6vh,2.25rem)] w-[clamp(1.5rem,2.6vh,2.25rem)]" fill="currentColor">
+      <path d="M4 9v6h4l5 5V4L8 9H4z" />
+      <path d="M19 8l-4.5 4.5M14.5 8l4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+    </svg>
+  }
+</button>
+  <span>{{ clock() }}</span>
+</div>
 </div>
