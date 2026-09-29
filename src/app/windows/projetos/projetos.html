@@ -1,63 +1,40 @@
 <p class="mb-3 text-xs uppercase tracking-wide text-gray-500">C:\ Meus Documentos \ Projetos</p>
 
-<!-- filtros -->
-<div class="mb-4 flex flex-wrap gap-1.5">
-  @for (f of filtros; track f.valor) {
-    <button
-      (click)="selecionarFiltro(f.valor)"
-      class="rounded-full border px-3 py-1 text-[11.5px] font-semibold transition-colors"
-      [class.bg-accent]="filtroAtivo() === f.valor"
-      [class.border-accent-dim]="filtroAtivo() === f.valor"
-      [class.text-[#062421]]="filtroAtivo() === f.valor"
-      [class.border-gray-300]="filtroAtivo() !== f.valor"
-      [class.bg-white]="filtroAtivo() !== f.valor"
-      [class.text-gray-600]="filtroAtivo() !== f.valor"
-      [class.hover:border-accent-dim]="filtroAtivo() !== f.valor"
-    >
-      {{ f.label }}
-    </button>
+<div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-3">
+  @for (p of projetos; track p.nome) {
+    <div class="group overflow-hidden rounded-lg border border-gray-300 bg-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
+      <button
+        type="button"
+        class="relative block aspect-video w-full overflow-hidden bg-gray-100"
+        (click)="galeria.abrir(p)"
+      >
+        <img
+          [src]="p.imagens[0]"
+          [alt]="'Screenshot do projeto ' + p.nome"
+          class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <span class="absolute left-2 top-2 rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+          {{ p.categoria }}
+        </span>
+        <span class="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition group-hover:bg-black/30 group-hover:opacity-100">
+          <span class="rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold text-gray-900">🔍 ver imagens</span>
+        </span>
+      </button>
+
+      <div class="p-3">
+        <h4 class="mb-1 text-[13px] font-semibold text-gray-900">{{ p.nome }}</h4>
+        <p class="mb-2 text-[11.5px] leading-snug text-gray-500">{{ p.descricao }}</p>
+
+        <div class="mb-2 flex flex-wrap gap-1">
+          @for (tech of p.tecnologias; track tech) {
+            <span class="rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[10px] font-medium text-gray-600">
+              {{ tech }}
+            </span>
+          }
+        </div>
+
+        <a [href]="p.link" target="_blank" class="text-[11px] font-bold text-accent-dim">ver projeto →</a>
+      </div>
+    </div>
   }
 </div>
-
-<!-- grid de projetos -->
-@if (projetosFiltrados().length > 0) {
-  <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-3">
-    @for (p of projetosFiltrados(); track p.nome) {
-      <a
-        [href]="p.link"
-        target="_blank"
-        class="group block overflow-hidden rounded-lg border border-gray-300 bg-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
-      >
-        <div class="relative aspect-video overflow-hidden bg-gray-100">
-          <img
-            [src]="p.imagem"
-            [alt]="'Screenshot do projeto ' + p.nome"
-            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <span class="absolute left-2 top-2 rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
-            {{ p.categoria }}
-          </span>
-        </div>
-
-        <div class="p-3">
-          <h4 class="mb-1 text-[13px] font-semibold text-gray-900">{{ p.nome }}</h4>
-          <p class="mb-2 text-[11.5px] leading-snug text-gray-500">{{ p.descricao }}</p>
-
-          <div class="mb-2 flex flex-wrap gap-1">
-            @for (tech of p.tecnologias; track tech) {
-              <span class="rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[10px] font-medium text-gray-600">
-                {{ tech }}
-              </span>
-            }
-          </div>
-
-          <span class="text-[11px] font-bold text-accent-dim">ver projeto →</span>
-        </div>
-      </a>
-    }
-  </div>
-} @else {
-  <p class="py-8 text-center text-sm text-gray-500">
-    Nenhum projeto nessa categoria ainda — mas está vindo por aí!
-  </p>
-}

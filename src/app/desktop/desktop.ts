@@ -9,10 +9,12 @@ import { Projetos } from '../windows/projetos/projetos';
 import { Contato } from '../windows/contato/contato';
 import { Curriculo } from '../windows/curriculo/curriculo';
 import { RedesSociais } from '../windows/redes-sociais/redes-sociais';
+import { GaleriaModal } from '../shared/galeria-modal/galeria-modal';
+
 
 @Component({
   selector: 'app-desktop',
-  imports: [Icon, Window, Taskbar, SobreMim, Projetos, Contato, Curriculo, RedesSociais],
+  imports: [Icon, Window, Taskbar, SobreMim, Projetos, Contato, Curriculo, RedesSociais, GaleriaModal],
   templateUrl: './desktop.html',
 })
 export class Desktop {

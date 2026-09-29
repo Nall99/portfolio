@@ -2,8 +2,7 @@
   class="flex w-[clamp(4rem,4.5vw,10rem)] flex-col items-center gap-1.5 rounded p-2 cursor-pointer border border-transparent hover:bg-accent/10"
   [class.bg-accent/20]="selected()"
   [class.border-accent/40]="selected()"
-  (click)="select.emit(windowId())"
-  (dblclick)="open.emit(windowId())"
+  (click)="open.emit(windowId())"
 >
   <div class="flex h-[clamp(2.25rem,3vw,6rem)] w-[clamp(2.25rem,3vw,6rem)] items-center justify-center drop-shadow-md">
     <app-icon-glyph [key]="iconKey()" />

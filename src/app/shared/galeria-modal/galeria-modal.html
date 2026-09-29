@@ -1,0 +1,49 @@
+@if (galeria.aberto() && galeria.projeto(); as projeto) {
+  <div
+    class="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 p-6 backdrop-blur-sm"
+    (click)="galeria.fechar()"
+  >
+    <div class="relative flex h-[85vh] w-[85vw] flex-col" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="absolute -top-10 right-0 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+        (click)="galeria.fechar()"
+      >✕</button>
+
+      <div class="relative flex-1 overflow-hidden rounded-lg border border-white/10 bg-black">
+        <img
+          [src]="projeto.imagens[galeria.indice()]"
+          [alt]="'Imagem ' + (galeria.indice() + 1) + ' de ' + projeto.nome"
+          class="h-full w-full object-contain"
+        />
+
+        @if (projeto.imagens.length > 1) {
+          <button
+            type="button"
+            class="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-lg text-white hover:bg-black/70"
+            (click)="galeria.anterior()"
+          >‹</button>
+          <button
+            type="button"
+            class="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-lg text-white hover:bg-black/70"
+            (click)="galeria.proxima()"
+          >›</button>
+        }
+      </div>
+
+      @if (projeto.imagens.length > 1) {
+        <div class="mt-3 flex flex-none justify-center gap-1.5">
+          @for (img of projeto.imagens; track $index) {
+            <span
+              class="h-1.5 w-1.5 rounded-full"
+              [class.bg-accent]="$index === galeria.indice()"
+              [class.bg-white/30]="$index !== galeria.indice()"
+            ></span>
+          }
+        </div>
+      }
+
+      <p class="mt-2 flex-none text-center text-xs text-white/70">{{ projeto.nome }}</p>
+    </div>
+  </div>
+}

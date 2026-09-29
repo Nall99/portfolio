@@ -1,5 +1,6 @@
-import { Component, signal, computed } from '@angular/core';
-import { Projeto, CategoriaProjeto } from '../../core/models/projeto';
+import { Component, signal, computed, inject } from '@angular/core';
+import { Projeto, CategoriaProjeto, criarImagens } from '../../core/models/projeto';
+import { GaleriaService } from '../../core/services/galeria-service';
 
 interface FiltroOpcao {
   valor: CategoriaProjeto | 'todos';
@@ -13,6 +14,8 @@ interface FiltroOpcao {
   templateUrl: './projetos.html',
 })
 export class Projetos {
+  protected galeria = inject(GaleriaService)
+
   protected filtros: FiltroOpcao[] = [
     { valor: 'todos', label: 'Todos' },
     { valor: 'Data Science', label: 'Data Science' },
@@ -21,12 +24,14 @@ export class Projetos {
 
   protected filtroAtivo = signal<CategoriaProjeto | 'todos'>('todos');
 
+
+
   protected projetos: Projeto[] = [
     {
       nome: 'Análise de uso de celular',
       descricao: '',
       link: 'https://github.com/Nall99/Analise-de-uso-de-celular/blob/main/main.ipynb',
-      imagem: '/images/projects/projeto-1.png',
+      imagens: criarImagens("/images/projects/analise-de-Celular", 2),
       categoria: 'Data Science',
       tecnologias: ['Python', 'Pandas', 'Matplotlib', 'Seaborn'],
     },
@@ -34,7 +39,7 @@ export class Projetos {
       nome: 'Angular',
       descricao: '',
       link: 'https://github.com/Nall99/modern-angular',
-      imagem: '/images/projects/projeto-2.png',
+      imagens: criarImagens("/images/projects/modern-angular", 1),
       categoria: 'Front-end',
       tecnologias: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     },
