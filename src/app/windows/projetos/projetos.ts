@@ -41,7 +41,15 @@ export class Projetos {
       link: 'https://github.com/Nall99/modern-angular',
       imagens: criarImagens("/images/projects/modern-angular", 1),
       categoria: 'Front-end',
-      tecnologias: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+      tecnologias: ['Angular'],
+    },
+    {
+      nome: 'Agente Virtual',
+      descricao: '',
+      link: 'https://github.com/Nall99/AgenteVirtual',
+      imagens: criarImagens("/images/projects/agente-virtual", 5),
+      categoria: 'Web',
+      tecnologias: ['Angular', 'Python', 'FastAPI', 'Tailwind', 'Vercel', 'openai'],
     },
   ];
 
