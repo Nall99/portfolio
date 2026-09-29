@@ -7,8 +7,8 @@ export class SoundService {
 
   constructor() {
     afterNextRender(() => {
-      this.carregar('click', '/sounds/click.wav');
-      this.carregar('minimize', '/sounds/minimize-window.wav');
+      this.carregar('click', 'sounds/click.wav');
+      this.carregar('minimize', 'sounds/minimize-window.wav');
     });
   }
 

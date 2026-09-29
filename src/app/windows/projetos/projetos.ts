@@ -29,7 +29,7 @@ export class Projetos {
   protected projetos: Projeto[] = [
     {
       nome: 'Agente Virtual',
-      descricao: '',
+      descricao: 'Electra - assistente de estudos de medicina.',
       link: 'https://github.com/Nall99/AgenteVirtual',
       imagens: criarImagens("/images/projects/agente-virtual", 5),
       categoria: 'Web',
@@ -37,7 +37,7 @@ export class Projetos {
     },
     {
       nome: 'Análise de uso de celular',
-      descricao: '',
+      descricao: 'Este projeto tem como objetivo explorar e visualizar os dados de uso de telefones celulares em diferentes países do mundo, utilizando um conjunto de dados real e atualizado.',
       link: 'https://github.com/Nall99/Analise-de-uso-de-celular/blob/main/main.ipynb',
       imagens: criarImagens("/images/projects/analise-de-Celular", 2),
       categoria: 'Data Science',
@@ -45,7 +45,7 @@ export class Projetos {
     },
     {
       nome: 'Angular',
-      descricao: '',
+      descricao: 'Pequeno projeto em angular',
       link: 'https://github.com/Nall99/modern-angular',
       imagens: criarImagens("/images/projects/modern-angular", 1),
       categoria: 'Front-end',
