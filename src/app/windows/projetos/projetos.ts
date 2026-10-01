@@ -36,6 +36,14 @@ export class Projetos {
       tecnologias: ['Angular', 'Python', 'FastAPI', 'Tailwind', 'Vercel', 'openai'],
     },
     {
+      nome: 'Galeria de imagens',
+      descricao: 'Galeria de imagens utilizando bucket S3 da MinIO, com upload de imagens e visualização.',
+      link: 'https://github.com/Nall99/galeria-project-bucket',
+      imagens: criarImagens("images/projects/galeria-de-imagens", 5),
+      categoria: 'Web',
+      tecnologias: ['Angular', 'Python', 'FastAPI', 'Tailwind', 'S3', 'MinIO'],
+    },
+    {
       nome: 'Análise de uso de celular',
       descricao: 'Este projeto tem como objetivo explorar e visualizar os dados de uso de telefones celulares em diferentes países do mundo, utilizando um conjunto de dados real e atualizado.',
       link: 'https://github.com/Nall99/Analise-de-uso-de-celular/blob/main/main.ipynb',
