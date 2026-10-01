@@ -41,7 +41,7 @@ export class Projetos {
       link: 'https://github.com/Nall99/galeria-project-bucket',
       imagens: criarImagens("images/projects/galeria-de-imagens", 5),
       categoria: 'Web',
-      tecnologias: ['Angular', 'Python', 'FastAPI', 'Tailwind', 'S3', 'MinIO'],
+      tecnologias: ['Angular', 'Python', 'FastAPI', 'Bootstrap 5', 'S3', 'MinIO'],
     },
     {
       nome: 'Análise de uso de celular',
