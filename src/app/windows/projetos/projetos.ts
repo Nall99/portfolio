@@ -44,6 +44,14 @@ export class Projetos {
       tecnologias: ['Angular', 'Python', 'FastAPI', 'Bootstrap 5', 'S3', 'MinIO'],
     },
     {
+      nome: 'Encurtador de link',
+      descricao: 'Encurtador de links feito com Java 21 e Spring Boot, com roteamento dinâmico via Traefik e ambiente completo orquestrado por Docker Compose.',
+      link: 'https://github.com/Nall99/shortener_link',
+      imagens: criarImagens("images/projects/shortener_link", 4),
+      categoria: 'Back-end',
+      tecnologias: ['java', 'Spring Boot', 'PostgreSQL', 'JPA', 'Hibernate', 'Maven', 'Docker', 'Traefik', 'Mockito'],
+    },
+    {
       nome: 'Análise de uso de celular',
       descricao: 'Este projeto tem como objetivo explorar e visualizar os dados de uso de telefones celulares em diferentes países do mundo, utilizando um conjunto de dados real e atualizado.',
       link: 'https://github.com/Nall99/Analise-de-uso-de-celular/blob/main/main.ipynb',
