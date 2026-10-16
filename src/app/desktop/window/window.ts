@@ -3,7 +3,6 @@ import { DragDropModule, CdkDragEnd } from '@angular/cdk/drag-drop';
 import { WindowService } from '../../core/services/window-service';
 import { AppWindow } from '../../core/models/window-model';
 import { IconGlyph } from "../../shared/icon-glyph/icon-glyph";
-import { SoundService } from '../../core/services/sound-service';
 
 @Component({
   imports: [DragDropModule, IconGlyph],
@@ -12,7 +11,6 @@ import { SoundService } from '../../core/services/sound-service';
   templateUrl: './window.html',
 })
 export class Window{
-  private sound = inject(SoundService);
   private windowService = inject(WindowService);
 
   win = input.required<AppWindow>();
@@ -34,13 +32,12 @@ export class Window{
   }
 
   minimize(event: MouseEvent): void {
-    this.sound.tocar('minimize');
+
     event.stopPropagation();
     this.windowService.minimize(this.win().id);
   }
 
   close(event: MouseEvent): void {
-    this.sound.tocar('click');
     event.stopPropagation();
     this.windowService.close(this.win().id);
   }

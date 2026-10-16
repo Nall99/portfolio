@@ -1,7 +1,25 @@
 <p class="mb-3 text-xs uppercase tracking-wide text-gray-500">C:\ Meus Documentos \ Projetos</p>
 
+<!-- filtros -->
+<div class="mb-4 flex flex-wrap gap-1.5">
+  @for (f of filtros; track f.valor) {
+    <button
+      (click)="selecionarFiltro(f.valor)"
+      class="rounded-full border px-3 py-1 text-[11.5px] font-semibold transition-colors"
+      [class.bg-accent]="filtroAtivo() === f.valor"
+      [class.border-accent-dim]="filtroAtivo() === f.valor"
+      [class.text-[#062421]]="filtroAtivo() === f.valor"
+      [class.border-gray-300]="filtroAtivo() !== f.valor"
+      [class.bg-white]="filtroAtivo() !== f.valor"
+      [class.text-gray-600]="filtroAtivo() !== f.valor"
+      [class.hover:border-accent-dim]="filtroAtivo() !== f.valor"
+    >
+         {{ f.label }}
+    </button>
+  }
+</div>
 <div class="grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-3">
-  @for (p of projetos; track p.nome) {
+  @for (p of projetosFiltrados(); track p.nome) {
     <div class="group overflow-hidden rounded-lg border border-gray-300 bg-white transition-all hover:-translate-y-0.5 hover:shadow-lg">
       <button
         type="button"

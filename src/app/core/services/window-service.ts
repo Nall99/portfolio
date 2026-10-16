@@ -1,5 +1,6 @@
-import { Service, signal, computed } from '@angular/core';
+import { Service, signal, computed, inject } from '@angular/core';
 import { AppWindow, WindowConfig, WindowId } from '../models/window-model';
+import { SoundService } from './sound-service';
 
 const REGISTRY: WindowConfig[] = [
   { id: 'sobre-mim', title: 'Sobre mim.txt', icon: 'user', defaultPosition: { x: 130, y: 70 }, defaultSize: { width: 520, height: 480 } },
@@ -36,7 +37,10 @@ export class WindowService {
   private topZ = 20;
   private openSeq = 0;
 
+  private sound = inject(SoundService);
+
   open(id: WindowId): void {
+    this.sound.tocar('click');
     this.update(id, w => ({
       ...w,
       isOpen: true,
@@ -47,11 +51,13 @@ export class WindowService {
   }
 
   close(id: WindowId): void {
+    this.sound.tocar('click');
     this.update(id, w => ({ ...w, isOpen: false, isMinimized: false, openOrder: 0 }));
     if (this.activeWindowId() === id) this.activeWindowId.set(null);
   }
 
   minimize(id: WindowId): void {
+    this.sound.tocar('minimize');
     this.update(id, w => ({ ...w, isMinimized: true }));
   }
 
