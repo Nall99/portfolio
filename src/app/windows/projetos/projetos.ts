@@ -31,12 +31,20 @@ export class Projetos {
 
   protected projetos: Projeto[] = [
     {
+      nome: 'Ecommerce',
+      descricao: 'Loja virtual completa com Django REST Framework no back-end e Angular + Tailwind CSS no front-end. Projeto de portfólio, com foco em regras de negócio no servidor, boa experiência de uso e deploy em produção.',
+      link: 'https://github.com/Nall99/ecommerce',
+      imagens: criarImagens('images/projects/ecommerce-Trama', 6),
+      categoria: 'Web',
+      tecnologias: ['Angular', 'Python', 'Django', 'Tailwind', 'Vercel(frontend)', 'Render(backend)', 'Supabase(banco de dados)'],
+    },
+    {
       nome: 'Agente Virtual',
       descricao: 'Electra - assistente de estudos de medicina.',
       link: 'https://github.com/Nall99/AgenteVirtual',
       imagens: criarImagens('images/projects/agente-virtual', 5),
       categoria: 'Web',
-      tecnologias: ['Angular', 'Python', 'FastAPI', 'Tailwind', 'Vercel', 'openai'],
+      tecnologias: ['Angular', 'Python', 'FastAPI', 'Tailwind', 'Vercel(frontend)', 'Render(backend)', 'openai'],
     },
     {
       nome: 'Galeria de imagens',
